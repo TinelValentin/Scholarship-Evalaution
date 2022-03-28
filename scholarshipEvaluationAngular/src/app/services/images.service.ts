@@ -11,10 +11,17 @@ export class ImagesService {
     '../assets/profile.png',
     '../assets/woman.png',
   ];
+
+
   constructor() { }
 
   getImages()
   {
     return this.imageUrls;
+  }
+
+  getListize()
+  {
+    return this.imageUrls.length;
   }
 }

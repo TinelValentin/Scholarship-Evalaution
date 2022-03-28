@@ -17,6 +17,7 @@ import { PositionsService } from 'src/app/services/positions.service';
 })
 export class InternListComponent implements OnInit, OnChanges {
   imageUrls: string[] ;
+  imageListize:number;
   name: string;
   dateofBirth: Date;
   age: string;
@@ -37,6 +38,7 @@ export class InternListComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.imageUrls=this._imagesL.getImages();
+    this.imageListize=this._imagesL.getListize();
     this.positions = this._positions.getPositions();
     this.getInterns();
   }

@@ -1,7 +1,7 @@
 <div *ngFor="let intern of internList; let i = index" class="List">
   <mat-card>
     <mat-card-header>
-      <img [src]="imageUrls[i % 5]" alt="image" class="profile" />
+      <img [src]="imageUrls[i % imageListize]" alt="image" class="profile" />
       {{ intern.name }} - {{ intern.position }}
     </mat-card-header>
     <mat-card-content>
