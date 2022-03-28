@@ -5,8 +5,8 @@
   
   .mat-card {
     
-    width: 200px;
-    height: 220px;
+    width: 230px;
+    height: 210px;
     font-weight: 500;
     background-color: darksalmon;
     mat-card-header{
@@ -22,7 +22,7 @@
         }
     }
     mat-card-content{
-        padding-bottom: 15px;
+        padding-bottom: 25px;
     }
     mat-card-footer{
         display: flex;

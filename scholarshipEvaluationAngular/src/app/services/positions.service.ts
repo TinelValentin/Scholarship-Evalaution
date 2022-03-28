@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class PositionsService {
   positions: string[] = [
     'Backend junior',
-    'Backend senior',
+    'Backend ',
     'Frontend junior',
-    'Frontend senior',
+    'Frontend ',
     'Full-Stack',
   ];
   constructor() { }
