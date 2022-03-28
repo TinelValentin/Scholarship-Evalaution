@@ -21,17 +21,16 @@
           (form.get('name').dirty || form.get('name').touched)
         "
       />
-     
     </mat-form-field>
     <div
-    *ngIf="
-      form.get('name').invalid &&
-      form.get('name').errors &&
-      (form.get('name').dirty || form.get('name').touched)
-    "
-  >
-    <p style="color: red">This input must be a name!</p>
-  </div>
+      *ngIf="
+        form.get('name').invalid &&
+        form.get('name').errors &&
+        (form.get('name').dirty || form.get('name').touched)
+      "
+    >
+      <p style="color: red">This input must be a name!</p>
+    </div>
   </form>
   <form [formGroup]="form">
     <label>Age</label>

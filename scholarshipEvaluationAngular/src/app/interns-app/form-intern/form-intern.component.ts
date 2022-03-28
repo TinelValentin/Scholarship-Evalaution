@@ -7,69 +7,60 @@ import { PositionsService } from 'src/app/services/positions.service';
 @Component({
   selector: 'app-form-intern',
   templateUrl: './form-intern.component.html',
-  styleUrls: ['./form-intern.component.scss']
+  styleUrls: ['./form-intern.component.scss'],
 })
 export class FormInternComponent implements OnInit {
   name: string;
-  dateofBirth:Date;
+  dateofBirth: Date;
   age: string;
   position: string = '';
-  hireDate: Date;
+  hireDate: Date = null;
   positions: string[];
   form: FormGroup;
-  id:string;
+  id: string;
 
-  constructor( private _route: ActivatedRoute,private _positions:PositionsService,private _internService:InternServiceService) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _positions: PositionsService,
+    private _internService: InternServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.positions=this._positions.getPositions();
+    this.positions = this._positions.getPositions();
     this.initialiseValidators();
-   // this._route.paramMap.subscribe((params: ParamMap) => {
-   //   this.id = params.get('id');
-   // });
-    
-    
   }
 
-initialiseValidators()
-{
-  this.form = new FormGroup({
-    name: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z]*")]),
-    age: new FormControl('', [
-      Validators.required,
-      Validators.pattern('[1-9]+[0-9]*'),
-    ]),
-    date: new FormControl('', [Validators.minLength(5)]),
-    dateOfBirth: new FormControl('', [Validators.minLength(5),Validators.required]),
-  });
-}
+  initialiseValidators() {
+    this.form = new FormGroup({
+      name: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-Z]*'),
+      ]),
+      age: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[1-9]+[0-9]*'),
+      ]),
+      date: new FormControl('', [Validators.minLength(5)]),
+      dateOfBirth: new FormControl('', [
+        Validators.minLength(5),
+        Validators.required,
+      ]),
+    });
+  }
 
   addIntern() {
-    let numberAge:number = +this.age;
+    let numberAge: number = +this.age;
+    if (this.hireDate == null) {
+      this.hireDate = new Date();
+    }
     const newIntern = {
       name: this.name,
-      position:this.position,
-      age:numberAge,
-      hireDate:this.hireDate,
-      dateOfBirth:this.dateofBirth,
-      id: this.id
-      
+      position: this.position,
+      age: numberAge,
+      hireDate: this.hireDate,
+      dateOfBirth: this.dateofBirth,
+      id: this.id,
     };
-   this._internService.addIntern(newIntern).subscribe();
-
-    
-  }
-
-  getNote()
-  {
-    //this.employeeService.getOneEmployee(this.id).subscribe(employee=>
-    //  {
-     //   this.name=employee.name;
-     //   this.description=employee.description;
-     //   this.hireDate=employee.hireDate;
-     //   this.age=employee.age;
-     //   this.jobTitle=employee.jobTitle;
-
-    //  })
+    this._internService.addIntern(newIntern).subscribe();
   }
 }
