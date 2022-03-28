@@ -1,0 +1,106 @@
+<div *ngFor="let intern of internList; let i = index" class="List">
+  <mat-card>
+    <mat-card-header>
+      <img [src]="imageUrls[i % 5]" alt="image" class="profile" />
+      {{ intern.name }} - {{ intern.position }}
+    </mat-card-header>
+    <mat-card-content>
+      <b>Hire Date:</b> {{ intern.hireDate | date: dateFormat }}<br />
+      <b>Age:</b> {{ intern.age }}<br />
+      <b>Date of Birth:</b> {{ intern.dateOfBirth | date: dateFormat }}
+    </mat-card-content>
+
+    <mat-card-footer>
+      <button mat-icon-button (click)="editIntern(intern.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteIntern(intern.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-footer>
+  </mat-card>
+</div>
+
+<div *ngIf="show">
+  <form ng-show="showForm">
+    <div class="container">
+      <h1>Intern Form</h1>
+      <label>Name</label>
+      <form>
+        <mat-form-field>
+          <input
+            matInput
+            name="inputName"
+            placeholder="Enter intern's name"
+            type="text"
+            [(ngModel)]="name"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </mat-form-field>
+      </form>
+      <form>
+        <label>Age</label>
+        <br />
+        <mat-form-field>
+          <textarea
+            matInput
+            name="inputNote"
+            [(ngModel)]="age"
+            [ngModelOptions]="{ standalone: true }"
+            placeholder="Enter his age"
+          ></textarea>
+        </mat-form-field>
+      </form>
+      <form>
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>Position</mat-label>
+          <mat-select
+            [(ngModel)]="position"
+            [ngModelOptions]="{ standalone: true }"
+            name="sel"
+          >
+            <mat-option *ngFor="let position of positions" [value]="position">
+              {{ position }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose date of birth</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            [(ngModel)]="dateofBirth"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </form>
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose hire date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="hireDate"
+            [ngModelOptions]="{ standalone: true }"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+
+      <button mat-button (click)="editInternForm()">Edit</button>
+    </div>
+  </form>
+</div>

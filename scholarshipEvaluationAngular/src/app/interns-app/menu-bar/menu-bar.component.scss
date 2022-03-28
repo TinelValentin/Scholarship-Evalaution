@@ -1,0 +1,14 @@
+.mat-toolbar{
+    background-color: rgb(102, 73, 64);
+    color: rgb(221, 199, 191);
+    justify-content: flex-start;
+    margin-bottom: 20px; 
+    button{
+        margin-left: 10px;
+    }
+    .mat-success {
+        background-color: rgb(124, 96, 40);
+        color: #fff;
+    }
+}
+

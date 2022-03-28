@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ScholarshipEvalaution</name>
+    </assembly>
+    <members>
+        <member name="M:ScholarshipEvalaution.Controllers.InternController.GetAll">
+            <summary>
+            Get all interns
+            </summary>
+            <returns>a list of interns</returns>
+        </member>
+        <member name="M:ScholarshipEvalaution.Controllers.InternController.GetOne(System.Guid)">
+            <summary>
+            Get an intern with a certain id
+            </summary>
+            <param name="id">intern's id</param>
+            <returns>an intern</returns>
+        </member>
+        <member name="M:ScholarshipEvalaution.Controllers.InternController.Delete(System.Guid)">
+            <summary>
+            Deletes an intern with a certain id
+            </summary>
+            <param name="id">intern's id</param>
+            <returns>the list of intern updated</returns>
+        </member>
+        <member name="M:ScholarshipEvalaution.Controllers.InternController.Update(System.Guid,ScholarshipEvalaution.Models.Intern)">
+            <summary>
+            update an intern with a certain id
+            </summary>
+            <param name="id">intern's id</param>
+            <param name="newIntern">the new intern</param>
+            <returns></returns>
+        </member>
+        <member name="M:ScholarshipEvalaution.Controllers.InternController.Create(ScholarshipEvalaution.Models.Intern)">
+            <summary>
+            Create a new intern
+            </summary>
+            <param name="newIntern"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

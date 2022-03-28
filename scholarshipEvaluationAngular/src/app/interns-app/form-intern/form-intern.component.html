@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>Intern Form</h1>
+  <label>Name</label>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input
+        matInput
+        id="name"
+        name="inputName"
+        placeholder="Enter intern's name"
+        type="text"
+        [(ngModel)]="name"
+        formControlName="name"
+        required
+        [class.valid]="
+          form.get('name').valid &&
+          (form.get('name').dirty || form.get('name').touched)
+        "
+        [class.invalid]="
+          form.get('name').invalid &&
+          (form.get('name').dirty || form.get('name').touched)
+        "
+      />
+     
+    </mat-form-field>
+    <div
+    *ngIf="
+      form.get('name').invalid &&
+      form.get('name').errors &&
+      (form.get('name').dirty || form.get('name').touched)
+    "
+  >
+    <p style="color: red">This input must be a name!</p>
+  </div>
+  </form>
+  <form [formGroup]="form">
+    <label>Age</label>
+    <br />
+    <mat-form-field>
+      <input
+        matInput
+        name="age"
+        [(ngModel)]="age"
+        formControlName="age"
+        placeholder="Enter his age"
+        [class.valid]="
+          form.get('age').valid &&
+          (form.get('age').dirty || form.get('age').touched)
+        "
+        [class.invalid]="
+          form.get('age').invalid &&
+          (form.get('age').dirty || form.get('age').touched)
+        "
+      />
+    </mat-form-field>
+  </form>
+  <div
+    *ngIf="
+      form.get('age').invalid &&
+      form.get('age').errors &&
+      (form.get('age').dirty || form.get('age').touched)
+    "
+  >
+    <p style="color: red">This input must be a number!</p>
+  </div>
+  <form>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Position</mat-label>
+      <mat-select [(ngModel)]="position" name="sel">
+        <mat-option *ngFor="let position of positions" [value]="position">
+          {{ position }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Choose date of birth</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker1"
+        [(ngModel)]="dateofBirth"
+        formControlName="dateOfBirth"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+  </form>
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Choose hire date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="hireDate"
+        formControlName="date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>
+
+  <button
+    mat-button
+    (click)="addIntern()"
+    [disabled]="form.invalid"
+    routerLink=""
+  >
+    Add
+  </button>
+</div>

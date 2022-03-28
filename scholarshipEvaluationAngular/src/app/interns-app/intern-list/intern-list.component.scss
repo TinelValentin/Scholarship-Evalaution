@@ -1,0 +1,63 @@
+.List{
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .mat-card {
+    
+    width: 200px;
+    height: 220px;
+    font-weight: 500;
+    background-color: darksalmon;
+    mat-card-header{
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 1px solid black;
+        .profile{
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          
+        }
+    }
+    mat-card-content{
+        padding-bottom: 15px;
+    }
+    mat-card-footer{
+        display: flex;
+        float: right;
+        vertical-align: bottom;
+    }
+  }
+  .container {
+    margin: auto;
+    margin-top: 2%;
+    padding-left: 20px;
+    border-radius: 5%;
+    background-color: white;
+    border: 2px solid rgb(124, 49, 5);
+    width: 350px;
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  
+    mat-form-field {
+      margin-top: 20px;
+    }
+    button {
+      margin-bottom: 20px;
+    }
+  }
+  
+  .add-note-form {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    max-width: 300px;
+  }
+  
+  

@@ -1,0 +1,5 @@
+<mat-toolbar>
+    <div *ngFor="let filter of filterArray">
+        <button mat-raised-button color="success" (click)="emitFilter(filter.id)">{{filter.name}}</button>
+    </div> 
+</mat-toolbar>
