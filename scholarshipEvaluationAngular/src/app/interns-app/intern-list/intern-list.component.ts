@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Intern } from 'src/app/intern';
+import { ImagesService } from 'src/app/services/images.service';
 import { InternServiceService } from 'src/app/services/intern-service.service';
 import { PositionsService } from 'src/app/services/positions.service';
 
@@ -15,13 +16,7 @@ import { PositionsService } from 'src/app/services/positions.service';
   styleUrls: ['./intern-list.component.scss'],
 })
 export class InternListComponent implements OnInit, OnChanges {
-  imageUrls: string[] = [
-    '../assets/man (2).png',
-    '../assets/man.png',
-    '../assets/man (1).png',
-    '../assets/profile.png',
-    '../assets/woman.png',
-  ];
+  imageUrls: string[] ;
   name: string;
   dateofBirth: Date;
   age: string;
@@ -36,10 +31,12 @@ export class InternListComponent implements OnInit, OnChanges {
 
   constructor(
     private internService: InternServiceService,
-    private _positions: PositionsService
+    private _positions: PositionsService,
+    private _imagesL :ImagesService
   ) {}
 
   ngOnInit(): void {
+    this.imageUrls=this._imagesL.getImages();
     this.positions = this._positions.getPositions();
     this.getInterns();
   }
